@@ -1,0 +1,69 @@
+<div class="selected-form">
+
+  <div class="form-info">
+    <div class="form-infp__text">
+      <h2>{{formInfo.name}}</h2>
+
+      <p>{{formInfo.description}}</p>
+    </div>
+
+    <figure>
+      <img [src]="formInfo.image">
+    </figure>
+    
+  </div>
+
+  <form>
+
+    <div *ngFor="let field of formFields; let i = index">
+
+      <label [for]="i + 1">{{field.label}}</label>
+
+      <input *ngIf="field.type == 'string'"
+             [name]="field.label + i"
+             [id]="i + 1" type="text"
+             [(ngModel)]="field.value">
+
+      <input *ngIf="field.type == 'integer'"
+             [name]="field.label + i"
+             [id]="i + 1" type="number"
+             step="1"
+             [(ngModel)]="field.value">
+
+      <input *ngIf="field.type == 'double'"
+             [name]="field.label + i"
+             [id]="i + 1"
+             type="number"
+             step="0.01"
+              [(ngModel)]="field.value">
+
+      <input *ngIf="field.type == 'bool'"
+             [name]="field.label + i"
+             [id]="i + 1"
+             type="checkbox"
+             [(ngModel)]="field.value">
+
+      <textarea rows="5"
+                [name]="field.label + i"
+                cols="42"
+                *ngIf="field.type == 'text'"
+                [id]="i + 1"
+                type="text">
+                  {{field.value}}
+      </textarea>
+
+      <ul *ngIf="field.type == 'list'">
+
+        <li *ngFor="let listField of field.values">
+
+          <input type="text" [value]="listField">
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </form>
+
+</div>

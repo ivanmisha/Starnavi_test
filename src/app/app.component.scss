@@ -1,0 +1,22 @@
+.site-header{
+  display: block;
+  height: 50px;
+  padding: 20px;
+  background: green;
+  margin-bottom: 20px;
+}
+
+.logo{
+  display: block;
+  text-decoration: none;
+  color: #000;
+  font-size: 21px;
+  &:hover{
+    color: #dddddd;
+  }
+}
+
+.site-container{
+  max-width: 1200px;
+  margin: 0 auto;
+}

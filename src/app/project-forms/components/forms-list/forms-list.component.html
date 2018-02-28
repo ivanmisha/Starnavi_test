@@ -1,0 +1,11 @@
+<div class="forms-list">
+  <div class="form-item"
+      *ngFor="let formItem of formsList; let i = index;">
+      <div class="form-item__pic" [ngStyle]="{'background': '#fff url(' + formItem.image + ')'}"></div>
+      {{formItem.name}}
+      <div class="form-item__btn">
+        <a (click)="setForm(formItem)" [routerLink]="['/forms', formItem.id]" >View</a>
+        <a (click)="deleteForm(i)">delete</a>
+      </div>
+  </div>
+</div>
